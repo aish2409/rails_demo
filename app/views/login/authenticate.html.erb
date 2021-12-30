@@ -1,0 +1,12 @@
+<%= form_tag(login_path,method: :post) do %>
+  <%= label_tag("Email") %>
+  <%= text_field :user, :email, required: true %><br>
+
+  <%= label_tag("password") %>
+  <%= text_field :user, :password, required: true %><br>
+
+  <%= submit_tag "Login" %><br>
+
+<% end %>
+
+

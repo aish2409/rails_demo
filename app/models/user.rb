@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
 
   validates_presence_of :name, :email, :password
   validates :email, confirmation: { case_sensitive: true }
