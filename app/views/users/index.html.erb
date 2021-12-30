@@ -1,23 +1,32 @@
-<h1>index page</h1>
-<%= link_to 'create new account here', new_user_path %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Address</th>
-    <th>Password</th>
-  </tr>
-  <% @users.each do |user| %>
+<h1>User list</h1>
+<table class="table table-hover table-dark">
+  <thead>
     <tr>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
-      <td><%= user.address %></td>
-      <td><%= user.password %></td>
-      <td><%= link_to 'show', user_path(user.id) %></td>
-      <td><%= link_to "Edit", edit_user_path(user.id)%></td>
-      <!-- <td><%#= link_to 'Show', user_path(user.id) %></td> -->
-      <td><%= link_to 'Delete',user_path(user.id), method: :delete,
-          data: { confirm: 'are you sure' } %></td>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.address %></td>
+          <td>
+            <%= button_to 'show', user_path(user.id),
+            :method => :get,  :class => "btn btn-success btn-lg" %>
+          </td>
+          <!-- <td><%#= link_to 'show', user_path(user.id) %></td> -->
+          <td>
+            <%= link_to 'Edit', edit_user_path(user.id),
+            :class => "btn btn-success btn-lg" %>
+          </td>
+          <td>
+            <%= button_to 'Delete',user_path(user.id), method: :delete,
+            class: 'btn btn-success btn-lg', data: { confirm: 'are you sure' }%>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
 </table>

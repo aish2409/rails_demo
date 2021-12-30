@@ -1,0 +1,22 @@
+<h1>Edit user data</h1>
+<%= form_for @user, method: :patch do |e| %>
+  <p>
+    <%= e.label :name %><br>
+    <%= e.text_field :name %>
+  </p>
+  <p>
+    <%= e.label :email %><br>
+    <%= e.text_field :email %>
+  </p>
+  <p>
+    <%= e.label :address %><br>
+    <%= e.text_field :address %>
+  </p>
+  <p>
+    <%= e.label :password %><br>
+    <%= e.text_field :password %>
+  </p>
+  <p>
+    <%= e.submit("update data") %>
+  </p>
+<% end %>
