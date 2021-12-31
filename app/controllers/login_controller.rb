@@ -8,11 +8,11 @@ class LoginController < ApplicationController
           flash[:success] = "login successful"
           redirect_to users_path
         else
-          flash[:alert] = "login failed"
+          flash[:notice] = "login failed"
           render :authenticate
         end
       else
-        flash[:alert] = "User is not exist"
+        flash[:notice] = "User is not exist"
         redirect_to root_path
       end
     end
