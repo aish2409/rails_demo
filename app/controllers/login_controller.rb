@@ -5,9 +5,10 @@ class LoginController < ApplicationController
       user = User.find_by(email: user_params[:email])
       if user.present?
         if user.authenticate(user_params[:password])
-          flash[:alert] = "login successful"
+          flash[:success] = "login successful"
           redirect_to users_path
         else
+          flash[:alert] = "login failed"
           render :authenticate
         end
       else
@@ -21,3 +22,4 @@ class LoginController < ApplicationController
     params.require(:user).permit(:email,:password)
   end
 end
+
