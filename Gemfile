@@ -36,6 +36,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#use for active admin panel
+gem 'devise'
+gem 'activeadmin'
+
 # Use for set environment
 gem 'figaro'
 
